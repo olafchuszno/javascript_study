@@ -32,7 +32,10 @@
         </ul>
 
         <div class="remaining-container">
-          <span>3 items remaining</span>
+          <span>
+            <span id="itemsRemaining">1</span>
+            items remaining
+          </span>
         </div>
       </div>
     </div>
@@ -43,6 +46,8 @@
     const todoInput = document.querySelector('#todoInput');    
     const todoItemContainer = document.querySelector('.todo-item-container');
     const todoList = document.querySelector('.todo-list');
+    const itemsRemaining = document.querySelector('#itemsRemaining');
+    let removeButton = document.querySelector('.x-button');
 
     todoForm.addEventListener('submit', event => {
       const newTodoItem = todoItemContainer.cloneNode(true);
@@ -51,7 +56,21 @@
 
       todoList.appendChild(newTodoItem);
 
+      itemsRemaining.textContent = todoList.childElementCount;
+
       event.preventDefault();
     });
+
+    todoList.addEventListener('click', () => {
+      if (event.target.classList.contains('x-button')) {
+        event.target.closest('.todo-item-container').remove();
+      }
+
+      itemsRemaining.textContent = todoList.childElementCount;
+
+      console.log(counter);
+    });
+
+    
   </script>
 </html>
