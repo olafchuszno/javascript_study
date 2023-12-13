@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript demo</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="script.js"></script>
+    <style>
+        body {
+            background-color: black;
+            color:white;
+        }
+
+        a {
+            color: red;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body >
+
+    <form action="/server">
+        <div>
+            <select id="cars" name="cars">
+                <option value="honda">Honda</option>
+                <option value="suzuki">Suzuki</option>
+                <option value="fiat">Fiat</option>
+            </select>
+        </div>
+
+        <div>
+            <input name="languages" type="radio" value="HTML">
+            <label for="HTML">HTML</label>
+            <input name="languages" type="radio" value="css">
+            <label for="HTML">css</label>
+            <input name="languages" type="radio" value="js">
+            <label for="HTML">js</label>
+        </div>
+
+        <div>
+            <button type="submit" id="submitButton">Submit</button>
+        </div>
+
+    </form>
+
+    <h1 class="heading" id="myHeading">
+        My todo list
+    </h1>
+
+
+    <p >
+        This is some content
+    </p>
+
+    <script>
+
+    const cars = document.querySelector('#cars');
+    const languages = document.querySelectorAll('input[name="languages"]');
+    const myForm = document.querySelector('form');
+
+    cars.addEventListener('change', function (event) {
+        console.log(event.target.value);
+    });
+
+    languages.forEach(function (language) {
+
+        language.addEventListener('change', function (event) {
+            console.log(event.target.value);
+        })
+
+    });
+    
+    myForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        console.log('intercepted');
+
+        console.log(myForm.value.cars);
+    })
+
+        
+    </script>
+
+</body>
+</html>

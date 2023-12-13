@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="flex h-screen">
+        <div id="container" class="flex flex-col items-center m-auto">
+
+            <h2 class="text-red-500 text-3xl">Counter</h2>
+
+            <div id="counter-value" class="text-2xl">
+                0
+            </div>
+
+            <div id="button-container" class="flex gap-6 mt-4">
+                <button id="decrement" class="px-2 py-1 bg-gray-400 border border-gray-600 rounded-2xl">Decrement</button> 
+                <button id="increment" class="px-2 py-1 bg-gray-400 border border-gray-600 rounded-2xl">Increment</button>
+                <button id="reset" class="px-2 py-1 bg-gray-400 border border-gray-600 rounded-2xl">Reset</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const decrement = document.querySelector('#decrement');
+        const increment = document.querySelector('#increment');
+        const reset = document.querySelector('#reset');
+        const counterValue = document.querySelector('#counter-value');
+
+        let counter = 0;
+
+        decrement.addEventListener('click', fn => {
+            counter--;
+
+            counterValue.textContent = counter;
+            setColor();
+        });
+
+        increment.addEventListener('click', fn => {
+            counter++;
+
+            counterValue.textContent = counter;
+            setColor();
+        });
+
+        reset.addEventListener('click', fn => {
+            counter = 0;
+
+            counterValue.textContent = counter;
+            setColor();
+        });
+
+        function setColor() {
+            if (counter == 0) {
+                counterValue.style.color = 'black'
+
+            } else if (counter > 0) {
+                counterValue.style.color = 'green';
+
+            } else {
+                counterValue.style.color = 'red';
+            }
+        }
+
+
+    </script>
+
+</body>
+</html>

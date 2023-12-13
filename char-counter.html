@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>
+            Character counter
+        </h1>
+        <h2 id="counterDisplay">
+            <span id="counter">0</span>
+            /
+            <span id="maxChar"></span>
+        </h2>
+    </div>
+    <div>
+        <textarea id="myInput" type="text"></textarea>
+    </div>
+
+    <script>
+        const myInput = document.querySelector('#myInput');
+        const counterDisplay = document.querySelector('#counterDisplay');
+        const counter = document.querySelector('#counter');
+        const limit = document.querySelector('#maxChar');
+        const maxChar = 20;
+
+        limit.textContent = maxChar;
+        
+        myInput.addEventListener('input', fn => {
+            if (myInput.value.length >= maxChar) {
+                myInput.value = myInput.value.substring(0, 20);
+
+                counterDisplay.style.color = 'red';
+            } else {
+                counterDisplay.style.color = 'black';
+            }
+
+            counter.textContent = myInput.value.length;
+        });
+
+
+    </script>
+</body>
+</html>
