@@ -50,6 +50,8 @@
     const todoCheck = document.querySelector('.todo-check');
     let removeButton = document.querySelector('.x-button');
 
+    let counter = 1;
+
     todoForm.addEventListener('submit', event => {
       const newTodoItem = todoItemContainer.cloneNode(true);
 
@@ -57,7 +59,8 @@
 
       todoList.append(newTodoItem);
 
-      itemsRemaining.textContent = todoList.childElementCount;
+      counter++;
+      itemsRemaining.textContent = counter;
 
       event.preventDefault();
     });
@@ -67,13 +70,23 @@
         const todoItemToComplete = event.target.nextElementSibling;
 
         todoItemToComplete.classList.toggle('line-through');
+
+        // if box is checked, reduce counter - remaining tasks
+        if (todoItemToComplete.classList.contains('line-through')) {
+          counter--;
+        }
+        
+
       }
 
       if (event.target.classList.contains('x-button')) {
         event.target.closest('.todo-item-container').remove();
+
+        counter--;
       }
 
-      itemsRemaining.textContent = todoList.childElementCount;
+      itemsRemaining.textContent = counter;
+
     });
 
 
