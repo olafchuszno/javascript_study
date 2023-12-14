@@ -24,7 +24,7 @@
         <ul class="todo-list">
           <li class="todo-item-container">
             <div class="todo-item">
-              <input type="checkbox" />
+              <input type="checkbox" class="todo-check"/>
               <span class="todo-item-label">Finish JavaScript Series</span>
             </div>
             <button class="x-button">&times;</button>
@@ -47,6 +47,7 @@
     const todoItemContainer = document.querySelector('.todo-item-container');
     const todoList = document.querySelector('.todo-list');
     const itemsRemaining = document.querySelector('#itemsRemaining');
+    const todoCheck = document.querySelector('.todo-check');
     let removeButton = document.querySelector('.x-button');
 
     todoForm.addEventListener('submit', event => {
@@ -54,7 +55,7 @@
 
       newTodoItem.querySelector('.todo-item-label').textContent = todoInput.value;
 
-      todoList.appendChild(newTodoItem);
+      todoList.append(newTodoItem);
 
       itemsRemaining.textContent = todoList.childElementCount;
 
@@ -62,14 +63,19 @@
     });
 
     todoList.addEventListener('click', () => {
+      if (event.target.classList.contains('todo-check')) {
+        const todoItemToComplete = event.target.nextElementSibling;
+
+        todoItemToComplete.classList.toggle('line-through');
+      }
+
       if (event.target.classList.contains('x-button')) {
         event.target.closest('.todo-item-container').remove();
       }
 
       itemsRemaining.textContent = todoList.childElementCount;
-
-      console.log(counter);
     });
+
 
     
   </script>
