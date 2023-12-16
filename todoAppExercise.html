@@ -31,11 +31,11 @@
           </li>
         </ul>
 
+        
+
         <div class="remaining-container">
-          <span>
-            <span id="itemsRemaining">1</span>
-            items remaining
-          </span>
+          <span class="itemsRemaining">1</span>
+          items remaining
         </div>
       </div>
     </div>
@@ -46,7 +46,7 @@
     const todoInput = document.querySelector('#todoInput');    
     const todoItemContainer = document.querySelector('.todo-item-container');
     const todoList = document.querySelector('.todo-list');
-    const itemsRemaining = document.querySelector('#itemsRemaining');
+    const itemsRemaining = document.querySelector('itemsRemaining');
     const todoCheck = document.querySelector('.todo-check');
     let removeButton = document.querySelector('.x-button');
 
@@ -59,8 +59,7 @@
 
       todoList.append(newTodoItem);
 
-      counter++;
-      itemsRemaining.textContent = counter;
+      calculateTodosLeft();
 
       event.preventDefault();
     });
@@ -73,7 +72,7 @@
 
         // if box is checked, reduce counter - remaining tasks
         if (todoItemToComplete.classList.contains('line-through')) {
-          counter--;
+          calculateTodosLeft();
         }
         
 
@@ -82,13 +81,29 @@
       if (event.target.classList.contains('x-button')) {
         event.target.closest('.todo-item-container').remove();
 
-        counter--;
+        calculateTodosLeft();
       }
 
       itemsRemaining.textContent = counter;
 
     });
 
+    function calculateTodosLeft()
+    {
+      let todosCounter = 0;
+
+      console.log(document.querySelectorAll('.todoItemContainer'));
+
+      // how many todo's left?
+      document.querySelectorAll('.todoItemContainer').forEach(element => {
+        if (! element.classList.contains('line-through')) {
+          todosCounter++;
+        }
+      });
+
+      // Change itemsRemaining counter
+      itemsRemaining.textContent = todosCounter;
+    }
 
     
   </script>
