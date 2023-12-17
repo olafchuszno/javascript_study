@@ -1,8 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
-import React, { Component }  from 'react';
+import React, { Component, useState }  from 'react';
 
 function App() {
+
+  const [count, setCount] = useState(0);
+
+  function decrement() {
+    setCount(prevCount => prevCount - 1);
+  }
+
+  function increment() {
+    setCount(count + 1);
+  }
 
   const someStyle = {
     background: 'blue',
@@ -14,6 +24,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <div>
+          <span>{count}</span>
+          <button type='button' onClick={decrement}>-</button>
+          <button type='button' onClick={increment}>+</button>
+        </div>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
