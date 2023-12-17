@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import React, { Component }  from 'react';
 
 function App() {
 
@@ -17,11 +18,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        { false &&
-          <p style={someStyle}>
-            siemanoo
-          </p>
-        }
+
         <a
           className="App-link"
           href="https://reactjs.org"
