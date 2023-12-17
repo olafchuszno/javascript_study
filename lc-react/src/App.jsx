@@ -17,9 +17,11 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <p style={someStyle}>
-          siemanoo
-        </p>
+        { false &&
+          <p style={someStyle}>
+            siemanoo
+          </p>
+        }
         <a
           className="App-link"
           href="https://reactjs.org"
