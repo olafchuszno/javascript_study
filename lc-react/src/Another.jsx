@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Another() {
+export default function Another(props) {
 return (
     <div>
-        Another component
+        Another component { `${props.id} ${props.name}` }
     </div>
 );
 }

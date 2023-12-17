@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <Another />
+      <Another id="anotherId" name="anotherName" />
         <div>
           <span>{count}</span>
           <button type='button' onClick={decrement}>-</button>
