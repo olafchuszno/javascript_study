@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { Component, useState }  from 'react';
+import Another from './Another.jsx';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+      <Another />
         <div>
           <span>{count}</span>
           <button type='button' onClick={decrement}>-</button>
