@@ -1,14 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
-import React, { Component, useState }  from 'react';
-import Another from './Another.jsx';
+import logo from "./logo.svg";
+import "./App.css";
+import React, { Component, useState } from "react";
+import Another from "./Another.jsx";
 
 function App() {
-
   const [count, setCount] = useState(0);
 
   function decrement() {
-    setCount(prevCount => prevCount - 1);
+    setCount((prevCount) => prevCount - 1);
   }
 
   function increment() {
@@ -16,20 +15,24 @@ function App() {
   }
 
   const someStyle = {
-    background: 'blue',
-    color: 'white',
-    fontSize: '28px',
-    fontWeight: 'bold'
+    background: "blue",
+    color: "white",
+    fontSize: "28px",
+    fontWeight: "bold",
   };
 
   return (
     <div className="App">
       <header className="App-header">
-      <Another id="anotherId" name="anotherName" />
+        <Another id="anotherId" name="anotherName" />
         <div>
           <span>{count}</span>
-          <button type='button' onClick={decrement}>-</button>
-          <button type='button' onClick={increment}>+</button>
+          <button type="button" onClick={decrement}>
+            -
+          </button>
+          <button type="button" onClick={increment}>
+            +
+          </button>
         </div>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
