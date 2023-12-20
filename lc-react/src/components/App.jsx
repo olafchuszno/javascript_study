@@ -6,17 +6,17 @@ function App() {
   const [todos, setTodos] = useState([
     {
       id: 1,
-      title: 'finish react series',
+      title: 'Finish React Series',
       isComplete: false,
     },
     {
       id: 2,
-      title: 'go grocery',
+      title: 'Go Grocery',
       isComplete: true,
     },
     {
       id: 3,
-      title: 'take over world',
+      title: 'Take over world',
       isComplete: false,
     },
   ]);
@@ -34,29 +34,25 @@ function App() {
         </form>
 
         <ul className="todo-list">
-          {todos.map((index, todo) => (
-            <li key={todos.id} className="todo-item-container">
-              <div className="todo-item" key={todo.id}>
-                <input type="checkbox" key={todo.id} />
-                <span className="todo-item-label" key={todo.id}>
-                  {todo.title}
-                </span>
+          {todos.map((todo, index) => (
+            <li key={todo.id} className="todo-item-container">
+              <div className="todo-item">
+                <input type="checkbox" />
+                <span className="todo-item-label">{todo.title}</span>
                 {/* <input type="text" className="todo-item-input" value="Finish React Series" /> */}
               </div>
-              <button className="x-button" key={todo.id}>
+              <button className="x-button">
                 <svg
                   className="x-button-icon"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  key={todo.id}
                 >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
                     d="M6 18L18 6M6 6l12 12"
-                    key={todo.id}
                   />
                 </svg>
               </button>
