@@ -6,12 +6,27 @@ async function init() {
 
   document.getElementById("output").innerHTML = `0: init()`;
 
-  const user = await getUserData();
+  // with 'await' for the function returning a promise we hold up the code.
+  // withOUT await for the function assignment, we are assigning the actual promise -
+  //   we don't hold up the code.
+
+  const userPromise = getUserData();
+  const stringPromise = getWelcomeString();
+
+  // here we don't hold up the code. We just await what the actual promise returns.
+  const user = await userPromise;
+
+  //   here we hold up the code
+  // const user = await getUserData();
+
   document.getElementById("output").innerHTML += `<br> ${user.name} ${
     start - Date.now()
   }`;
 
-  const string = await getWelcomeString();
+  const string = await stringPromise;
+
+  // const string = await getWelcomeString();
+
   document.getElementById("output").innerHTML += `<br> ${string} ${
     start - Date.now()
   }`;
